@@ -1,0 +1,35 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+	<h1>My Very own Bag of Marbles</h1>
+	<p class="lead">Click the appropriate button to either add a random marble, or add a customer marble.</p>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<h3>Click to add a random colored marble to your bag </h3>
+		<p>
+			<button class="btn btn-primary"> RANDOM MARBLE </button>
+		</p>
+	</div>
+	<div class="col-md-6 col-md-offset-2">
+		<h3> Enter a valid color name, then click to add that marble to your bag </h3>
+		<p>
+			<input type="text" id="customColor" placeholder="Color Name" />
+			<button class="btn btn-primary"> CUSTOM MARBLE </button>
+		</p>
+
+	</div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+		<h3> In the bag:</h3>
+  
+        <div id="myBag">
+
+
+		</div>
+    </div>
+</div>
