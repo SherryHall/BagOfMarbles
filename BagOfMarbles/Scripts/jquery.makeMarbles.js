@@ -12,14 +12,11 @@ function getRandomColor() {
 var successHandler = function (data) {
 	console.log("in successHandler");
 	console.log(data);
-	console.log("after data");
 	var parent = $("#myBag");
 	parent.html("");
 	data.forEach(function (item) {
-		console.log(item.custColor);
 		var newDiv = $("<div>").addClass("marble").css("background-color", item.Color);
 		parent.append(newDiv);
-		console.log("after foreach");
 	});
 }
 
@@ -31,11 +28,9 @@ var completeHandler = function (data) {
 	console.log("complete");
 }
 
-var createMarble = function () {
-	console.log("in createMarble");
+var createMarble = function (newColor) {
 	var dom = {
-		//custColor: $("#customColor").val(),
-		Color: getRandomColor()
+		Color: newColor
 	}
 
 	$.ajax({
@@ -47,8 +42,14 @@ var createMarble = function () {
 		complete: completeHandler,
 		contentType: "application/json",
 		dataType: "json"
-
 	});
 }
 
-$("button").on("click", createMarble);
+$("#randBtn").on("click", function () {
+	var newColor = getRandomColor(); 
+	createMarble(newColor)
+}); 
+$("#custBtn").on("click", function () {
+	var newColor = $("#customColor").val();
+	createMarble(newColor)
+});
